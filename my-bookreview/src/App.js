@@ -1,6 +1,7 @@
 import React, {component} from 'react';
 import './App.scss';
 import Spinner from './components/spinner'
+import Overlay from './components/overlay'
 
 class App extends React.Component{
   constructor(props){
@@ -32,7 +33,11 @@ render(){
     let {isLoaded, books} =this.state;
 
     if(isLoaded){
-      return <Spinner />
+      return(
+        <Overlay>
+          <Spinner />
+        </Overlay>
+      )
     }else{
       return (
       <div className="app">

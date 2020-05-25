@@ -5,7 +5,7 @@ function Spinner(props){
   return(
     <div className={styles.spinner}>
       <div className ={styles.spinwheel}/>
-        <p>Hello from spinner</p>
+        
     </div>
   )}
 
