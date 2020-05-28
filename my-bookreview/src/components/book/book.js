@@ -2,20 +2,21 @@ import React from 'react'
 import styles from './book.module.scss'
 import malgudiPic from './malgudidays.jpg'
 import alchemistPic from './thealchemist.jpg'
+import Tag from '../tag'
 
 function Book(props){
   let pic;
   let tags=(
     <p>
       {props.tags.map((tag)=>(
-        <span>{tag}</span>
+        <Tag label={tag} />
       ))}
     </p>
 
   )
 
   let metadata;
-  if(props.complete){
+  if(props.isComplete){
     metadata= <p>{'⭐'.repeat(props.rating)}</p>
   }else{
     metadata=<p><progress value={props.progress} max="100" /></p>

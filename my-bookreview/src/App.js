@@ -3,6 +3,7 @@ import './App.scss';
 import Spinner from './components/spinner'
 import Overlay from './components/overlay'
 import Book from './components/book'
+import BookGrid from './components/bookGrid'
 
 class App extends React.Component{
   constructor(props){
@@ -16,7 +17,7 @@ class App extends React.Component{
 
 componentDidMount(){
   console.log('I was triggered during componentDidMount')
-  fetch('https://gist.githubusercontent.com/Gahana-Kundur/03746af020bd7cfe3aff1a3ca9dd8f06/raw/e1a8e122bd003ccc01ef637347f21513131ed915/bookish%2520data')
+  fetch('https://gist.githubusercontent.com/Gahana-Kundur/03746af020bd7cfe3aff1a3ca9dd8f06/raw/f73f9a189fa5cdb043e27ca748e21e8385627ec5/bookish%2520data')
     .then((res)=> res.json())
     .then((json)=>{
       console.log("Printing json")
@@ -48,12 +49,14 @@ render(){
       console.log(books)
       return (
         <div className="app">
-          <p> These are the books!!</p>
+          <BookGrid>
 
-          {books.map((book) =>(
-            <Book key={book.id} {...book}/>
-          )
-          )}
+
+            {books.map((book) =>(
+              <Book key={book.id} {...book}/>
+            )
+            )}
+          </BookGrid>
       </div>
     )}
 
